@@ -1,0 +1,10 @@
+# Terraform
+.terraform/
+*.tfstate
+*.tfstate.backup
+terraform.tfvars
+
+# Optional but recommended
+*.log
+.DS_Store
+.vscode/
