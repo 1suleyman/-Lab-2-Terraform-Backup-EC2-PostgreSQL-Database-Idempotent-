@@ -57,6 +57,11 @@ resource "aws_instance" "this" {
   key_name  = data.aws_key_pair.existing.key_name
   user_data = file("${path.module}/user_data.sh")
 
+  metadata_options {
+    http_endpoint = "enabled"
+    http_tokens   = "required"
+  }
+# this requires all metadata access on this EC2 instance to use secure, token-based IMDSv2 — blocking legacy IMDSv1 attacks.
   tags = {
     Name = var.name
   }
